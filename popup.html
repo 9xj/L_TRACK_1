@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>School Manager Authentication Helper</title>
+    <style>
+      body {
+        text-align: center;
+        width: 300px;
+      }
+
+      .btn {
+        width: 150px;
+        border: solid 1px #2ea6c8;
+        margin: 0 auto;
+        color: #08c;
+        padding: 10px;
+      }
+
+      #login {
+        display: none;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: #c8c8c8;
+        background-image: linear-gradient(to right, #fff, #c8c8c8, #fff);
+        margin-top: 20px;
+      }
+
+      #footer {
+        color: #ddd;
+      }
+
+      #header {
+        margin-bottom: 10px;
+      }
+      #loading {
+      }
+      #wrapper {
+        display: none;
+      }
+      #msg {
+        margin-bottom: 5px;
+      }
+      #floatingBarsG {
+        position: relative;
+        width: 25px;
+        height: 31px;
+        margin: auto;
+      }
+
+      .blockG {
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        width: 4px;
+        height: 10px;
+        border-radius: 3px 3px 0 0;
+        -o-border-radius: 3px 3px 0 0;
+        -ms-border-radius: 3px 3px 0 0;
+        -webkit-border-radius: 3px 3px 0 0;
+        -moz-border-radius: 3px 3px 0 0;
+        transform: scale(0.4);
+        -o-transform: scale(0.4);
+        -ms-transform: scale(0.4);
+        -webkit-transform: scale(0.4);
+        -moz-transform: scale(0.4);
+        animation-name: fadeG;
+        -o-animation-name: fadeG;
+        -ms-animation-name: fadeG;
+        -webkit-animation-name: fadeG;
+        -moz-animation-name: fadeG;
+        animation-duration: 0.672s;
+        -o-animation-duration: 0.672s;
+        -ms-animation-duration: 0.672s;
+        -webkit-animation-duration: 0.672s;
+        -moz-animation-duration: 0.672s;
+        animation-iteration-count: infinite;
+        -o-animation-iteration-count: infinite;
+        -ms-animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        animation-direction: normal;
+        -o-animation-direction: normal;
+        -ms-animation-direction: normal;
+        -webkit-animation-direction: normal;
+        -moz-animation-direction: normal;
+      }
+
+      #rotateG_01 {
+        left: 0;
+        top: 11px;
+        animation-delay: 0.2495s;
+        -o-animation-delay: 0.2495s;
+        -ms-animation-delay: 0.2495s;
+        -webkit-animation-delay: 0.2495s;
+        -moz-animation-delay: 0.2495s;
+        transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+      }
+
+      #rotateG_02 {
+        left: 3px;
+        top: 4px;
+        animation-delay: 0.336s;
+        -o-animation-delay: 0.336s;
+        -ms-animation-delay: 0.336s;
+        -webkit-animation-delay: 0.336s;
+        -moz-animation-delay: 0.336s;
+        transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+      }
+
+      #rotateG_03 {
+        left: 10px;
+        top: 1px;
+        animation-delay: 0.4225s;
+        -o-animation-delay: 0.4225s;
+        -ms-animation-delay: 0.4225s;
+        -webkit-animation-delay: 0.4225s;
+        -moz-animation-delay: 0.4225s;
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+      }
+
+      #rotateG_04 {
+        right: 3px;
+        top: 4px;
+        animation-delay: 0.509s;
+        -o-animation-delay: 0.509s;
+        -ms-animation-delay: 0.509s;
+        -webkit-animation-delay: 0.509s;
+        -moz-animation-delay: 0.509s;
+        transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+      }
+
+      #rotateG_05 {
+        right: 0;
+        top: 11px;
+        animation-delay: 0.5955s;
+        -o-animation-delay: 0.5955s;
+        -ms-animation-delay: 0.5955s;
+        -webkit-animation-delay: 0.5955s;
+        -moz-animation-delay: 0.5955s;
+        transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+      }
+
+      #rotateG_06 {
+        right: 3px;
+        bottom: 3px;
+        animation-delay: 0.672s;
+        -o-animation-delay: 0.672s;
+        -ms-animation-delay: 0.672s;
+        -webkit-animation-delay: 0.672s;
+        -moz-animation-delay: 0.672s;
+        transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+      }
+
+      #rotateG_07 {
+        bottom: 0;
+        left: 10px;
+        animation-delay: 0.7585s;
+        -o-animation-delay: 0.7585s;
+        -ms-animation-delay: 0.7585s;
+        -webkit-animation-delay: 0.7585s;
+        -moz-animation-delay: 0.7585s;
+        transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+      }
+
+      #rotateG_08 {
+        left: 3px;
+        bottom: 3px;
+        animation-delay: 0.845s;
+        -o-animation-delay: 0.845s;
+        -ms-animation-delay: 0.845s;
+        -webkit-animation-delay: 0.845s;
+        -moz-animation-delay: 0.845s;
+        transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+      }
+
+      @keyframes fadeG {
+        0% {
+          background-color: rgb(0, 0, 0);
+        }
+
+        100% {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      @-o-keyframes fadeG {
+        0% {
+          background-color: rgb(0, 0, 0);
+        }
+
+        100% {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      @-ms-keyframes fadeG {
+        0% {
+          background-color: rgb(0, 0, 0);
+        }
+
+        100% {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      @-webkit-keyframes fadeG {
+        0% {
+          background-color: rgb(0, 0, 0);
+        }
+
+        100% {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+
+      @-moz-keyframes fadeG {
+        0% {
+          background-color: rgb(0, 0, 0);
+        }
+
+        100% {
+          background-color: rgb(255, 255, 255);
+        }
+      }
+    </style>
+    <script src="interface.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h4>School Manager Identity Helper</h4>
+    </div>
+
+    <div id="wrapper">
+      <div id="msg"></div>
+      <a href="#" id="login" class="btn">Login</a>
+    </div>
+
+    <div id="loading">
+      <div id="floatingBarsG">
+        <div class="blockG" id="rotateG_01"></div>
+        <div class="blockG" id="rotateG_02"></div>
+        <div class="blockG" id="rotateG_03"></div>
+        <div class="blockG" id="rotateG_04"></div>
+        <div class="blockG" id="rotateG_05"></div>
+        <div class="blockG" id="rotateG_06"></div>
+        <div class="blockG" id="rotateG_07"></div>
+        <div class="blockG" id="rotateG_08"></div>
+      </div>
+    </div>
+    <hr />
+
+    <div id="footer"></div>
+  </body>
+</html>

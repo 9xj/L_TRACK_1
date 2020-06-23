@@ -1,0 +1,55 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+
+  "oauth2": {
+    "client_id": "474789183549-r2b65ce4j556nplq1g2t53ns3hm2lcdu.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/userinfo.email"]
+  },
+
+  "manifest_version": 2,
+  "name": "School Manager Identity",
+  "description": "This extension enables authentication of chrome browsers and devices with the School Manager network appliance.",
+  "version": "1.1.7",
+  "short_name": "School Manager Identity",
+
+  "browser_action": {
+    "default_icon": "FZ_ICON_4.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "permissions": [
+    "identity",
+    "identity.email",
+    "http://autologin.linewize.net/",
+    "http://login.linewize.net/",
+    "https://login.linewize.net/",
+    "http://chromelogin.linewize.net/",
+    "http://autologout.linewize.net/",
+
+    "http://autologin.syd-1.linewilinewizeze.net/",
+    "http://login.syd-1.linewize.net/",
+    "https://login.syd-1.linewize.net/",
+    "http://chromelogin.syd-1.linewize.net/",
+    "http://autologout.syd-1.linewize.net/",
+
+    "http://autologin.syd-2.linewilinewizeze.net/",
+    "http://login.syd-2.linewize.net/",
+    "https://login.syd-2.linewize.net/",
+    "http://chromelogin.syd-2.linewize.net/",
+    "http://autologout.syd-2.linewize.net/",
+
+    "http://autologin.us-1.linewize.net/",
+    "http://login.us-1.linewize.net/",
+    "https://login.us-1.linewize.net/",
+    "http://chromelogin.us-1.linewize.net/",
+    "http://autologout.us-1.linewize.net/",
+
+    "http://autologin.beta-1.linewize.net/",
+    "http://login.beta-1.linewize.net/",
+    "https://login.beta-1.linewize.net/",
+    "http://chromelogin.beta-1.linewize.net/",
+    "http://autologout.beta-1.linewize.net/"
+  ]
+}
